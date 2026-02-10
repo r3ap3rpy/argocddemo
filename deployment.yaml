@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: argocd
+  name: argocd
+  namespace: argo-demo
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: argocd
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: argocd
+    spec:
+      containers:
+      - image: r3ap3rpy/argocd:v1
+        name: argocd
